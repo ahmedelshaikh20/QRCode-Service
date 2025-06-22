@@ -1,8 +1,48 @@
-This is the *QRCode Service (Kotlin)* project I made myself.
+# QR Code Generation REST API
 
+A simple and customizable QR Code generator API built with **Spring Boot** and **Kotlin** using the **ZXing** library.
 
-<p>This project utilizes QR codes — 2D barcodes that can store large amounts of data and are easily read by smartphones. Through this Spring Boot project, users can learn about the technology behind QR codes, generate them programmatically, and integrate them into a web service.</p><br/><br/>Learn more at <a href="https://hyperskill.org/projects/414?utm_source=ide&utm_medium=ide&utm_campaign=ide&utm_content=project-card">https://hyperskill.org/projects/414</a>
+## 🚀 Features
 
-Here's the link to the project: https://hyperskill.org/projects/414
+- Generate QR codes via a RESTful API.
+- Supports output formats: `PNG`, `JPEG`, and `GIF`.
+- Supports error correction levels: `L`, `M`, `Q`, `H`.
+- Size customization (between 150x150 and 350x350).
+- Input validation with clear JSON error messages.
 
-Check out my profile: https://hyperskill.org/profile/621879293
+---
+
+## 🛠️ Tech Stack
+
+- **Kotlin**
+- **Spring Boot**
+- **ZXing (Zebra Crossing)** for QR code generation
+- **Gradle**
+
+---
+
+## 🔗 API Endpoints
+
+### 1. Health Check
+
+**GET** `/`  
+Response: `"Hello World"`
+
+**GET** `/api/health`  
+Response: `"Ok"`
+
+---
+
+### 2. Generate QR Code
+
+**GET** `/api/qrcode`
+
+#### Query Parameters
+
+| Parameter     | Required | Default | Description |
+|---------------|----------|---------|-------------|
+| `contents`    | ✅ Yes   | –       | The text/data to encode in the QR code |
+| `size`        | ❌ No    | `250`   | Image size (must be between 150 and 350) |
+| `correction`  | ❌ No    | `L`     | Error correction level (`L`, `M`, `Q`, `H`) |
+| `type`        | ❌ No    | `png`   | Output image format (`png`, `jpeg`, `gif`) |
+
